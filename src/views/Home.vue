@@ -17,11 +17,11 @@
     </header>
 
     <div class="content-box">
-      <div style="width: 960px;margin:0 auto;">默认仿Mac Safari 风格的滚动条</div>
+      <div>默认仿Mac Safari 风格的滚动条</div>
       <!-- 上部 -->
       <div class="content">
         <div class="scroll1-box"
-             :style="`width:${width}px;height:${height}px`">
+             :style="`max-width:${width}px;width:100%;height:${height}px`">
           <ohyeah ref="scroll1"
                   :autoHide="autoHide"
                   :left="leftTop"
@@ -86,7 +86,7 @@
       </div>
       <hr />
       <!-- 下部 -->
-      <div style="width: 960px;margin:0 auto;">嵌套</div>
+      <div>嵌套</div>
       <div class="content"
            style="border: solid 1px #ccc">
 
@@ -274,11 +274,12 @@ export default {
   }
   .content-box {
     padding: 40px 20px;
+    max-width: 960px;
+    margin: 0 auto;
   }
   .content {
     display: flex;
     flex-wrap: wrap;
-    width: 960px;
     margin: 20px auto 0 auto;
     & > div {
       flex: 1;
