@@ -1,118 +1,118 @@
 <template>
-  <!-- <Ohyeah width="100%"
-          height="100vh"> -->
-  <div class="home-page">
-    <header>
-      <span class="title">vue-ohyeah-scroll</span>
-      <a href="https://www.npmjs.com/package/vue-ohyeah-scroll"
-         target="_blank"
-         rel="nofollow">
-        <img src="https://img.shields.io/npm/v/vue-ohyeah-scroll.svg"
-             alt="version">
-      </a>
-      <a href="https://github.com/javaLuo/vue-ohyeah-scroll"
-         target="_blank"
-         rel="nofollow">Github</a>
+  <Ohyeah width="100%"
+          height="100vh">
+    <div class="home-page">
+      <header>
+        <span class="title">vue-ohyeah-scroll</span>
+        <a href="https://www.npmjs.com/package/vue-ohyeah-scroll"
+           target="_blank"
+           rel="nofollow">
+          <img src="https://img.shields.io/npm/v/vue-ohyeah-scroll.svg"
+               alt="version">
+        </a>
+        <a href="https://github.com/javaLuo/vue-ohyeah-scroll"
+           target="_blank"
+           rel="nofollow">Github</a>
 
-    </header>
+      </header>
 
-    <div class="content-box">
-      <div>默认仿Mac Safari 风格的滚动条</div>
-      <!-- 上部 -->
-      <div class="content">
-        <div class="scroll1-box"
-             :style="`max-width:${width}px;width:100%;height:${height}px`">
-          <ohyeah ref="scroll1"
-                  :autoHide="autoHide"
-                  :left="leftTop"
-                  :top="leftTop"
-                  :noVer="noVer"
-                  :noHor="noHor"
-                  :thumbColor="thumbColor"
-                  :trackColor="trackColor"
-                  @onVerStart="onVerStart"
-                  @onVerEnd="onVerEnd"
-                  @onHorStart="onHorStart"
-                  @onHorEnd="onHorEnd"
-                  @onScroll="onScroll">
-            <div class="info-box">
-              <h3 id="a1">第一章</h3><br />
-              <a href="#a2">锚点:去第二章</a>
-              <p v-for="(item,index) in sourceData"
-                 :key="index">{{item}}</p>
-              <hr />
+      <div class="content-box">
+        <div>默认仿Mac Safari 风格的滚动条</div>
+        <!-- 上部 -->
+        <div class="content">
+          <div class="scroll1-box"
+               :style="`max-width:${width}px;width:100%;height:${height}px`">
+            <ohyeah ref="scroll1"
+                    :autoHide="autoHide"
+                    :left="leftTop"
+                    :top="leftTop"
+                    :noVer="noVer"
+                    :noHor="noHor"
+                    :thumbColor="thumbColor"
+                    :trackColor="trackColor"
+                    @onVerStart="onVerStart"
+                    @onVerEnd="onVerEnd"
+                    @onHorStart="onHorStart"
+                    @onHorEnd="onHorEnd"
+                    @onScroll="onScroll">
+              <div class="info-box">
+                <h3 id="a1">第一章</h3><br />
+                <a href="#a2">锚点:去第二章</a>
+                <p v-for="(item,index) in sourceData"
+                   :key="index">{{item}}</p>
+                <hr />
 
-              <el-input type="textarea"
-                        v-model="textareaValue"
-                        :rows="2"
-                        resize="none"
-                        placeholder="文本域中按键不影响滚动条行为">
-              </el-input>
-              <hr />
-              <el-input v-model="inputValue"
-                        placeholder="文本框中按键不影响滚动条行为"></el-input>
-              <h3 id="a2">第二章</h3><br />
-              <a href="#a1">锚点:去第一章</a>
-              <p v-for="(item,index) in data"
-                 :key="`${index}-${index}`">{{item}}</p>
+                <el-input type="textarea"
+                          v-model="textareaValue"
+                          :rows="2"
+                          resize="none"
+                          placeholder="文本域中按键不影响滚动条行为">
+                </el-input>
+                <hr />
+                <el-input v-model="inputValue"
+                          placeholder="文本框中按键不影响滚动条行为"></el-input>
+                <h3 id="a2">第二章</h3><br />
+                <a href="#a1">锚点:去第一章</a>
+                <p v-for="(item,index) in data"
+                   :key="`${index}-${index}`">{{item}}</p>
+              </div>
+            </ohyeah>
+          </div>
+          <div>
+            <ul>
+              <li>offsetHeight:{{dom.offsetHeight}}</li>
+              <li>offsetWidth:{{dom.offsetWidth}}</li>
+              <li>clientHeight:{{dom.clientHeight}}</li>
+              <li>clientWidth:{{dom.clientWidth}}</li>
+              <li>scrollHeight:{{dom.scrollHeight}}</li>
+              <li>scrollWidth:{{dom.scrollWidth}}</li>
+              <li>scrollTop:{{dom.scrollTop}}</li>
+              <li>scrollLeft:{{dom.scrollLeft}}</li>
+            </ul>
+          </div>
+          <div class="control-box">
+            <button @click="onAdd">+10条</button>
+            <button @click="onPlus">-10条</button>
+            <button @click="onScrollTo(0,0)">移动到顶部</button>
+            <button @click="onScrollTo('end','end')">移动到底部</button>
+            <button @click="autoHide=!autoHide">自动隐藏({{autoHide}})</button>
+            <button @click="onChangeSize">随机改变容器大小</button>
+            <button @click="leftTop=!leftTop">改变位置</button>
+            <button @click="noVer=!noVer">禁用垂直({{noVer}})</button>
+            <button @click="noHor=!noHor">禁用水平({{noHor}})</button>
+            <button @click="onChangeColor">换颜色</button>
+            <button @click="onReColor">还原颜色</button>
+          </div>
+        </div>
+        <hr />
+        <!-- 下部 -->
+        <div>嵌套</div>
+        <div class="content"
+             style="border: solid 1px #ccc">
+
+          <ohyeah :autoHide="false"
+                  width="500px"
+                  height="300">
+            <div class="info-box2">
+              <!-- 原生嵌套 -->
+              <div style="width: 300px;height: 300px;border:solid 1px #ccc;overflow:auto;margin-right: 10px;">
+                <p v-for="(item,index) in sourceData"
+                   :key="index">{{item}}</p>
+              </div>
+              <!-- ohyeah嵌套 -->
+              <ohyeah width="300"
+                      height="300"
+                      :autoHide="false">
+                <p v-for="(item,index) in sourceData"
+                   :key="index">{{item}}</p>
+              </ohyeah>
             </div>
           </ohyeah>
         </div>
-        <div>
-          <ul>
-            <li>offsetHeight:{{dom.offsetHeight}}</li>
-            <li>offsetWidth:{{dom.offsetWidth}}</li>
-            <li>clientHeight:{{dom.clientHeight}}</li>
-            <li>clientWidth:{{dom.clientWidth}}</li>
-            <li>scrollHeight:{{dom.scrollHeight}}</li>
-            <li>scrollWidth:{{dom.scrollWidth}}</li>
-            <li>scrollTop:{{dom.scrollTop}}</li>
-            <li>scrollLeft:{{dom.scrollLeft}}</li>
-          </ul>
-        </div>
-        <div class="control-box">
-          <button @click="onAdd">+10条</button>
-          <button @click="onPlus">-10条</button>
-          <button @click="onScrollTo(0,0)">移动到顶部</button>
-          <button @click="onScrollTo('end','end')">移动到底部</button>
-          <button @click="autoHide=!autoHide">自动隐藏({{autoHide}})</button>
-          <button @click="onChangeSize">随机改变容器大小</button>
-          <button @click="leftTop=!leftTop">改变位置</button>
-          <button @click="noVer=!noVer">禁用垂直({{noVer}})</button>
-          <button @click="noHor=!noHor">禁用水平({{noHor}})</button>
-          <button @click="onChangeColor">换颜色</button>
-          <button @click="onReColor">还原颜色</button>
-        </div>
       </div>
-      <hr />
-      <!-- 下部 -->
-      <div>嵌套</div>
-      <div class="content"
-           style="border: solid 1px #ccc">
 
-        <ohyeah :autoHide="false"
-                width="500px"
-                height="300">
-          <div class="info-box2">
-            <!-- 原生嵌套 -->
-            <div style="width: 300px;height: 300px;border:solid 1px #ccc;overflow:auto;margin-right: 10px;">
-              <p v-for="(item,index) in sourceData"
-                 :key="index">{{item}}</p>
-            </div>
-            <!-- ohyeah嵌套 -->
-            <ohyeah width="300"
-                    height="300"
-                    :autoHide="false">
-              <p v-for="(item,index) in sourceData"
-                 :key="index">{{item}}</p>
-            </ohyeah>
-          </div>
-        </ohyeah>
-      </div>
     </div>
-
-  </div>
-  <!-- </Ohyeah> -->
+  </Ohyeah>
 </template>
 
 <script>
