@@ -1,5 +1,5 @@
 module.exports = {
-  //publicPath: "/work/vue-ohyeah-scroll",
+  publicPath: "/work/vue-ohyeah-scroll",
   // plugins: [
   //   [
   //     "component",
