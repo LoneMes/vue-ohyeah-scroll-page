@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: "/work/vue-ohyeah-scroll",
+  publicPath: process.env.NODE_ENV === "development" ? "/" : "/work/vue-ohyeah-scroll",
   // plugins: [
   //   [
   //     "component",
